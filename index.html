@@ -1,6 +1,7 @@
 <!--
  * CINETAB.'s Page
- * Last Update: 2022-04-26
+ * Last Update: 2026-06-13
+ * 适配PC/移动端
 -->
 <html lang="zh-CN">
 <head>
@@ -10,82 +11,132 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/AyagawaSeirin/homepage@latest/mdui/css/mdui.min.css">
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/index.css">
-    <!-- <link rel="stylesheet" href="/assets/css/detaile.css"> -->
     <link rel="stylesheet" href="https://at.alicdn.com/t/font_1625701_q2422cy34wn.css">
     <link rel="icon" href="/assets/img/logo.jpg">
-
-    
-
+    <!-- 新增移动端适配样式 -->
+    <style>
+        /* 移动端适配核心样式 */
+        @media (max-width: 768px) {
+            /* 左侧栏占满宽度，按钮横向换行 */
+            .rin-left-wrap {
+                width: 100% !important;
+                margin-bottom: 20px;
+            }
+            .rin-left-title, .rin-left-slogan, .rin-left-title2 {
+                text-align: center;
+                padding: 5px 0;
+            }
+            /* 移动端按钮自适应 */
+            .rin-btn-left {
+                display: inline-block;
+                width: 45%;
+                margin: 5px 2% !important;
+                text-align: center;
+            }
+            /* 相关网站网格：移动端2列，平板4列 */
+            .site-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+            @media (min-width: 576px) {
+                .site-grid {
+                    grid-template-columns: repeat(4, 1fr) !important;
+                }
+            }
+            /* 文章卡片文字换行 */
+            .rin-article-content {
+                font-size: 14px;
+                line-height: 1.5;
+                word-break: break-all;
+            }
+            /* 右侧内容区占满宽度 */
+            .content-col {
+                width: 100% !important;
+                padding: 0 10px;
+            }
+        }
+        /* PC端保持6列 */
+        @media (min-width: 769px) {
+            .site-grid {
+                grid-template-columns: repeat(6, 1fr) !important;
+            }
+        }
+        /* 统一按钮样式，避免溢出 */
+        .rin-btn {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
 </head>
 <body class="mdui-theme-primary-pink mdui-theme-accent-pink">
 <div id="rin-bg"></div>
 <main id="rin-main">
     <div class="mdui-row">
-        <div class="mdui-col-xs-12 mdui-col-md-2">
+        <!-- 左侧栏：新增包裹层，适配移动端 -->
+        <div class="mdui-col-xs-12 mdui-col-md-2 rin-left-wrap">
             <div class="rin-left">
-                <div class="rin-logo">
-                    <img src="/assets/img/logo.jpg">
+                <div class="rin-logo" style="text-align: center;">
+                    <img src="/assets/img/logo.jpg" style="max-width: 100px; height: auto;">
                 </div>
-                  </div>
-               <div class="rin-left-title">CINETAB.&nbsp;裕见映画&nbsp;</div>
-<div class="rin-left-slogan">Visual Content Studio & Event Solutions</div>
-<div class="rin-left-title2"><strong>「视觉及活动落地全案服务商」</strong></div>
+                <div class="rin-left-title">CINETAB.&nbsp;裕见映画&nbsp;</div>
+                <div class="rin-left-slogan">Visual Content Studio & Event Solutions</div>
+                <div class="rin-left-title2"><strong>「视觉及活动落地全案服务商」</strong></div>
 
-<!-- 所有按钮统一放在 rin-left 内部，缩进对齐 -->
-              <a class="mdui-btn mdui-btn-raised rin-btn rin-btn-blue rin-btn-left mdui-text-capitalize" href="about.html" target="_blank" rel="noopener noreferrer">关于我们</a>
-              <a class="mdui-btn mdui-btn-raised rin-btn rin-btn-blue rin-btn-left mdui-text-capitalize" href="service.html" target="_blank" rel="noopener noreferrer">业务服务</a>
-              <a class="mdui-btn mdui-btn-raised rin-btn rin-btn-blue rin-btn-left mdui-text-capitalize" href="contact.html" target="_blank" rel="noopener noreferrer">联系我们</a>
-              <a class="mdui-btn mdui-btn-raised rin-btn rin-btn-blue rin-btn-left mdui-text-capitalize" href="https://mp.weixin.qq.com/s/leRnF-trwwuIGZJou0pnyA" target="_blank" rel="noopener noreferrer">自有公众号</a>
-
-              </div> <!-- 此处才是 rin-left 容器正常闭合 -->
-
-<div class="mdui-col-xs-12 mdui-col-md-10">
-    <div class="mdui-card rin-card">
-        <!-- <div class="rin-card-title">关于我</div> -->
-        <div class="rin-card-part" id="introduce" style="margin-top: 0;">
-            <div class="rin-card-content mdui-typo">您好，这里可以获取到影视制作的工作教程，也可以了解到我司的相关讯息。欢迎垂询合作！
+                <!-- 所有按钮统一放在 rin-left 内部 -->
+                <a class="mdui-btn mdui-btn-raised rin-btn rin-btn-blue rin-btn-left mdui-text-capitalize" href="about.html" target="_blank" rel="noopener noreferrer">关于我们</a>
+                <a class="mdui-btn mdui-btn-raised rin-btn rin-btn-blue rin-btn-left mdui-text-capitalize" href="service.html" target="_blank" rel="noopener noreferrer">业务服务</a>
+                <a class="mdui-btn mdui-btn-raised rin-btn rin-btn-blue rin-btn-left mdui-text-capitalize" href="contact.html" target="_blank" rel="noopener noreferrer">联系我们</a>
+                <a class="mdui-btn mdui-btn-raised rin-btn rin-btn-blue rin-btn-left mdui-text-capitalize" href="https://mp.weixin.qq.com/s/leRnF-trwwuIGZJou0pnyA" target="_blank" rel="noopener noreferrer">自有公众号</a>
             </div>
-        </div>
+        </div> <!-- rin-left-wrap 闭合 -->
 
-       <div class="rin-card-part" id="contact">
-    <div class="rin-card-title2 mdui-typo"><a href="#contact">#</a> 相关网站</div>
-    
-    <!-- 网格容器：每行6个按钮，自动均分宽度 -->
-    <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; margin-top: 10px;">
-        <!-- 第一行 -->
-        <a class="mdui-btn mdui-btn-raised rin-btn rin-btn-blue mdui-text-capitalize" href="https://www.arri.com/cn" target="_blank" rel="noopener noreferrer">ARRI</a>
-        <a class="mdui-btn mdui-btn-raised rin-btn rin-btn-blue mdui-text-capitalize" href="https://www.red.com/learn/get-started" target="_blank" rel="noopener noreferrer">RED</a>
-        <a class="mdui-btn mdui-btn-raised rin-btn rin-btn-blue mdui-text-capitalize" href="https://cookeoptics.com/" target="_blank" rel="noopener noreferrer">COOKE</a>
-        <a class="mdui-btn mdui-btn-raised rin-btn rin-btn-blue mdui-text-capitalize" href="https://www.zeiss.com.cn/consumer-products/cinematography.html" target="_blank" rel="noopener noreferrer">ZEISS</a>
-        <a class="mdui-btn mdui-btn-raised rin-btn rin-btn-blue mdui-text-capitalize" href="https://www.sonystyle.com.cn/products/professional-video-cameras/index.html" target="_blank" rel="noopener noreferrer">SONY</a>
-        <a class="mdui-btn mdui-btn-raised rin-btn rin-btn-blue mdui-text-capitalize" href="http://www.itvc-cn.com/Angenieux/Angenieux.html" target="_blank" rel="noopener noreferrer">Angenieux</a>
-        
-        <!-- 第二行 -->
-        <a class="mdui-btn mdui-btn-raised rin-btn rin-btn-blue mdui-text-capitalize" href="http://www.cinehello.com" target="_blank" rel="noopener noreferrer">影视工业网</a>
-        <a class="mdui-btn mdui-btn-raised rin-btn rin-btn-pink mdui-text-capitalize" href="http://www.xinpianchang.com" target="_blank" rel="noopener noreferrer">新片场</a>
-        <a class="mdui-btn mdui-btn-raised rin-btn rin-btn-blue mdui-text-capitalize" href="http://www.tmeng.cn" target="_blank" rel="noopener noreferrer">淘梦</a>
-        <a class="mdui-btn mdui-btn-raised rin-btn rin-btn-pink mdui-text-capitalize" href="http://www.camera-man.cn/?ref=www.dianyingren.top" target="_blank" rel="noopener noreferrer">摄像人网</a>
-        <a class="mdui-btn mdui-btn-raised rin-btn rin-btn-blue mdui-text-capitalize" href="https://www.filmaker.cn/" target="_blank" rel="noopener noreferrer">拍电影网</a>
-        <a class="mdui-btn mdui-btn-raised rin-btn rin-btn-pink mdui-text-capitalize" href="https://www.dianyingren.top/" target="_blank" rel="noopener noreferrer">影人指南针</a>
-        
-        <!-- 第三行（补空按钮保持对称，隐藏点击） -->
-        <a class="mdui-btn mdui-btn-raised rin-btn rin-btn-blue mdui-text-capitalize" href="https://www.bfa.edu.cn/sheying/index.htm" target="_blank" rel="noopener noreferrer">BFA摄影系</a>
-        <a class="mdui-btn mdui-btn-raised rin-btn rin-btn-pink mdui-text-capitalize" href="https://mp.weixin.qq.com/s/pugLHIgenY5MnuUQMgFYHA" target="_blank" rel="noopener noreferrer">熊猫潘</a>
-        <a class="mdui-btn mdui-btn-raised rin-btn rin-btn-blue mdui-text-capitalize" href="https://www.kinefinity.com/" target="_blank" rel="noopener noreferrer">Kinefinity</a>
-        <a class="mdui-btn mdui-btn-raised rin-btn rin-btn-pink mdui-text-capitalize" href="https://www.z-cam.com/cn" target="_blank" rel="noopener noreferrer">ZCAM</a>
-        <div class="mdui-btn" style="visibility: hidden;"></div> <!-- 空占位 -->
-        <div class="mdui-btn" style="visibility: hidden;"></div> <!-- 空占位 -->
-    </div>
-</div>
+        <!-- 右侧内容区：添加适配类 -->
+        <div class="mdui-col-xs-12 mdui-col-md-10 content-col">
+            <div class="mdui-card rin-card">
+                <div class="rin-card-part" id="introduce" style="margin-top: 0;">
+                    <div class="rin-card-content mdui-typo">您好，这里可以获取到影视制作的工作教程，也可以了解到我司的相关讯息。欢迎垂询合作！
+                    </div>
+                </div>
+
+                <div class="rin-card-part" id="contact">
+                    <div class="rin-card-title2 mdui-typo"><a href="#contact">#</a> 相关网站</div>
+                    
+                    <!-- 网格容器：新增类名，适配不同屏幕 -->
+                    <div class="site-grid" style="display: grid; gap: 8px; margin-top: 10px;">
+                        <!-- 第一行 -->
+                        <a class="mdui-btn mdui-btn-raised rin-btn rin-btn-blue mdui-text-capitalize" href="https://www.arri.com/cn" target="_blank" rel="noopener noreferrer">ARRI</a>
+                        <a class="mdui-btn mdui-btn-raised rin-btn rin-btn-blue mdui-text-capitalize" href="https://www.red.com/learn/get-started" target="_blank" rel="noopener noreferrer">RED</a>
+                        <a class="mdui-btn mdui-btn-raised rin-btn rin-btn-blue mdui-text-capitalize" href="https://cookeoptics.com/" target="_blank" rel="noopener noreferrer">COOKE</a>
+                        <a class="mdui-btn mdui-btn-raised rin-btn rin-btn-blue mdui-text-capitalize" href="https://www.zeiss.com.cn/consumer-products/cinematography.html" target="_blank" rel="noopener noreferrer">ZEISS</a>
+                        <a class="mdui-btn mdui-btn-raised rin-btn rin-btn-blue mdui-text-capitalize" href="https://www.sonystyle.com.cn/products/professional-video-cameras/index.html" target="_blank" rel="noopener noreferrer">SONY</a>
+                        <a class="mdui-btn mdui-btn-raised rin-btn rin-btn-blue mdui-text-capitalize" href="http://www.itvc-cn.com/Angenieux/Angenieux.html" target="_blank" rel="noopener noreferrer">Angenieux</a>
+                        
+                        <!-- 第二行 -->
+                        <a class="mdui-btn mdui-btn-raised rin-btn rin-btn-blue mdui-text-capitalize" href="http://www.cinehello.com" target="_blank" rel="noopener noreferrer">影视工业网</a>
+                        <a class="mdui-btn mdui-btn-raised rin-btn rin-btn-pink mdui-text-capitalize" href="http://www.xinpianchang.com" target="_blank" rel="noopener noreferrer">新片场</a>
+                        <a class="mdui-btn mdui-btn-raised rin-btn rin-btn-blue mdui-text-capitalize" href="http://www.tmeng.cn" target="_blank" rel="noopener noreferrer">淘梦</a>
+                        <a class="mdui-btn mdui-btn-raised rin-btn rin-btn-pink mdui-text-capitalize" href="http://www.camera-man.cn/?ref=www.dianyingren.top" target="_blank" rel="noopener noreferrer">摄像人网</a>
+                        <a class="mdui-btn mdui-btn-raised rin-btn rin-btn-blue mdui-text-capitalize" href="https://www.filmaker.cn/" target="_blank" rel="noopener noreferrer">拍电影网</a>
+                        <a class="mdui-btn mdui-btn-raised rin-btn rin-btn-pink mdui-text-capitalize" href="https://www.dianyingren.top/" target="_blank" rel="noopener noreferrer">影人指南针</a>
+                        
+                        <!-- 第三行（补空保持对称） -->
+                        <a class="mdui-btn mdui-btn-raised rin-btn rin-btn-blue mdui-text-capitalize" href="https://www.bfa.edu.cn/sheying/index.htm" target="_blank" rel="noopener noreferrer">BFA摄影系</a>
+                        <a class="mdui-btn mdui-btn-raised rin-btn rin-btn-pink mdui-text-capitalize" href="https://mp.weixin.qq.com/s/pugLHIgenY5MnuUQMgFYHA" target="_blank" rel="noopener noreferrer">熊猫潘</a>
+                        <a class="mdui-btn mdui-btn-raised rin-btn rin-btn-blue mdui-text-capitalize" href="https://www.kinefinity.com/" target="_blank" rel="noopener noreferrer">Kinefinity</a>
+                        <a class="mdui-btn mdui-btn-raised rin-btn rin-btn-pink mdui-text-capitalize" href="https://www.z-cam.com/cn" target="_blank" rel="noopener noreferrer">ZCAM</a>
+                        <div class="mdui-btn" style="visibility: hidden;"></div>
+                        <div class="mdui-btn" style="visibility: hidden;"></div>
+                    </div>
+                </div>
 
                 <div class="rin-card-part" id="article">
                     <div class="rin-card-title2 mdui-typo"><a href="#article">#</a> Cinematography 电影摄影</div>
 
                     <a target="_blank" href="https://cinehello.com/yingyi/course/241">
-                    <div class="mdui-card rin-card rin-card-article" style="margin-bottom: 10px;">
-                        <div class="rin-article-title">曹郁：《“诗意·写实”－谈我的影像风格》</div>
-                        <div class="rin-article-content">著名摄影师，ASC会员。作品曾获金鸡、金马、金像最佳摄影，多个国际电影节最佳摄影，代表作品《可可西里》《南京！南京》《妖猫传》《八佰》《摆渡人》等……</div>
-                    </div>
+                        <div class="mdui-card rin-card rin-card-article" style="margin-bottom: 10px;">
+                            <div class="rin-article-title">曹郁：《“诗意·写实”－谈我的影像风格》</div>
+                            <div class="rin-article-content">著名摄影师，ASC会员。作品曾获金鸡、金马、金像最佳摄影，多个国际电影节最佳摄影，代表作品《可可西里》《南京！南京》《妖猫传》《八佰》《摆渡人》等……</div>
+                        </div>
                     </a>
 
                     <a target="_blank" href="https://cinehello.com/yingyi/course/287">
@@ -95,7 +146,7 @@
                         </div>
                     </a>
                     
-                      <a target="_blank" href="https://www.bilibili.com/video/BV1Hy4y1C7A6?spm_id_from=333.999.0.0">
+                    <a target="_blank" href="https://www.bilibili.com/video/BV1Hy4y1C7A6?spm_id_from=333.999.0.0">
                         <div class="mdui-card rin-card rin-card-article" style="margin-bottom: 5px;">
                             <div class="rin-article-title">王博学：谈蔡司SPR镜头拍摄体验</div>
                             <div class="rin-article-content">著名青年摄影师。作品有《我不是药神》《奇迹·笨小孩》《侍神令》《我和我的家乡·北京好人》《我和我的祖国·护航》等。</div>
@@ -105,54 +156,49 @@
                         Learn more...
                     </a>
                     
-                <br/>
-                    <br/>
-                <br/>
-                    <br/>
-                    <a>
-        </a>
-                <div class="rin-card-part" id="works">
-                    <div class="rin-card-title2 mdui-typo"><a href="#works">#</a> Film-Lighting 电影照明</div>
+                    <br clear="all"/>
+                    <div class="rin-card-part" id="works">
+                        <div class="rin-card-title2 mdui-typo"><a href="#works">#</a> Film-Lighting 电影照明</div>
 
-                    <a target="_blank" href="https://www.bilibili.com/video/BV1yt411g7p8?spm_id_from=333.999.0.0">
-                        <div class="mdui-card rin-card rin-card-article" style="margin-bottom: 5px;">
-                            <div class="rin-article-title">后浪电影学院《布光研习社》</div>
-                            <div class="rin-article-content">主讲老师邢金峰，8年的一线实战经验，担任《师傅》《辛亥革命》《剑雨》《我是路人甲》《罗曼蒂克消亡史》等多部电影灯光师。</div>
-                        </div>
-                    </a>
-                    <a target="_blank" href="https://www.bilibili.com/video/BV1LD4y1o7be?spm_id_from=333.337.search-card.all.click">
-                        <div class="mdui-card rin-card rin-card-article" style="margin-bottom: 5px;">
-                            <div class="rin-article-title">胡萝卜计划：“最黑的夜 最亮的光”——《八佰》</div>
-                            <div class="rin-article-content">胡萝卜计划是由坏猴子影业和单向街公益基金会共同发起，演讲、对谈的形态，打造学习型开放沙龙。</div>
-                        </div>
-                    </a>
-                    <a target="_blank" href="https://www.bilibili.com/video/BV1Mb411z7mm?spm_id_from=333.999.0.0">
-                        <div class="mdui-card rin-card rin-card-article" style="margin-bottom: 5px;">
-                            <div class="rin-article-title">电影导演摄影灯光教程-影视从业者教程</div>
-                            <div class="rin-article-content">生肉，国外引进，具体来源不知，内容详尽。</div>
-                        </div>
-                    </a>
-                    <a class="rin-article-more" target="_blank" href="https://www.jizhihezi.com/">
-                        Learn more...
-                    </a>
+                        <a target="_blank" href="https://www.bilibili.com/video/BV1yt411g7p8?spm_id_from=333.999.0.0">
+                            <div class="mdui-card rin-card rin-card-article" style="margin-bottom: 5px;">
+                                <div class="rin-article-title">后浪电影学院《布光研习社》</div>
+                                <div class="rin-article-content">主讲老师邢金峰，8年的一线实战经验，担任《师傅》《辛亥革命》《剑雨》《我是路人甲》《罗曼蒂克消亡史》等多部电影灯光师。</div>
+                            </div>
+                        </a>
+                        <a target="_blank" href="https://www.bilibili.com/video/BV1LD4y1o7be?spm_id_from=333.337.search-card.all.click">
+                            <div class="mdui-card rin-card rin-card-article" style="margin-bottom: 5px;">
+                                <div class="rin-article-title">胡萝卜计划：“最黑的夜 最亮的光”——《八佰》</div>
+                                <div class="rin-article-content">胡萝卜计划是由坏猴子影业和单向街公益基金会共同发起，演讲、对谈的形态，打造学习型开放沙龙。</div>
+                            </div>
+                        </a>
+                        <a target="_blank" href="https://www.bilibili.com/video/BV1Mb411z7mm?spm_id_from=333.999.0.0">
+                            <div class="mdui-card rin-card rin-card-article" style="margin-bottom: 5px;">
+                                <div class="rin-article-title">电影导演摄影灯光教程-影视从业者教程</div>
+                                <div class="rin-article-content">生肉，国外引进，具体来源不知，内容详尽。</div>
+                            </div>
+                        </a>
+                        <a class="rin-article-more" target="_blank" href="https://www.jizhihezi.com/">
+                            Learn more...
+                        </a>
+                    </div>
 
-                </div>
+                    <div class="rin-tr"></div>
 
+                    <div class="rin-card-part" id="last">
+                        <div class="rin-card-title2">CINETABLE | TABLEVISION</div>
+                        <div class="rin-card-content">拍拍电影，晃晃树枝</div>
+                    </div>
 
-                <div class="rin-tr"></div>
-
-                <div class="rin-card-part" id="last">
-                    <div class="rin-card-title2">CINETABLE | TABLEVISION</div>
-                    <div class="rin-card-content">拍拍电影，晃晃树枝</div>
-                </div>
-
-                <div class="rin-card-part" id="footer">
-                    <div class="rin-card-content">©2026   CineTable·TableVision Design & Event Co., Ltd. All rights reserved. <br>
-                        Mail: Film.Maker@foxmail.com | 感谢开源 @AyagawaSeirin | BG: <a
-                            href="https://www.pixiv.net/" id="bg-link" target="_blank">Pixiv</a></div>
+                    <div class="rin-card-part" id="footer">
+                        <div class="rin-card-content">©2026   CineTable·TableVision Design & Event Co., Ltd. All rights reserved. <br>
+                            Mail: Film.Maker@foxmail.com | 感谢开源 @AyagawaSeirin | BG: <a
+                                href="https://www.pixiv.net/" id="bg-link" target="_blank">Pixiv</a></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </main>
+</body>
 </html>
